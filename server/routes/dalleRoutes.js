@@ -24,13 +24,13 @@ router.route('/').post(async (req, res) => {
       size: '1024x1024',
       response_format: 'b64_json',
     });
-
-    const image = aiResponse.data.data[0].b64_json;
+    console.log(aiResponse);
+    const image = aiResponse.data[0].b64_json;
     res.status(200).json({ photo: image });
 
   } catch (error) {
     console.log(error);
-    res.status(error.response.status).send(error?.response.data.error.message);
+    res.status(500).send({ message: error?.message });
   }
 });
 
