@@ -13,8 +13,8 @@ dotenv.config();
 const app = express(); // initialize express application
 app.use(cors()); // use cors middleware, helps manage cors-related issues by setting appropriate headers in http resposne
 app.use(express.json({ limit: '50mb' })); //  adds middleware to parse incoming hson data in http requests, sets limit on json payload
-app.use('api/v1/post', postRoutes); // adding this and one below as middleware to create api endpoints so we can connect backend to frontend with those routes
-app.use('api/v1/dalle', dalleRoutes);
+app.use('/api/v1/post', postRoutes); // adding this and one below as middleware to create api endpoints so we can connect backend to frontend with those routes
+app.use('/api/v1/dalle', dalleRoutes);
 
 
 app.get('/', async (req, res) => {
